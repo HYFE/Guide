@@ -248,7 +248,7 @@ h3 {
 }
 ```
 
-```
+```html
 <div class="selector"></div>
 ```
 
@@ -323,7 +323,7 @@ h3 {
 
 工欲善其事，必先利其器。去了解你的编辑器配置，以及使用可为你带来编码效率的插件。
 
-### EditotorConfig
+### EditorConfig
 
 ```
 root = true
