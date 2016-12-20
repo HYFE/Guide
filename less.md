@@ -211,7 +211,7 @@ padding: 0 10px;
 
 如果 `mixin` 名称不是一个需要使用的 `className`，加上括号，否则即使不被调用也会输出到 CSS 中
 
-```
+```less
 // ✗
 .text-2x {
   font-size: 2em;
@@ -234,7 +234,7 @@ h3 {
 带括号调用的 `mixin` 不会编译为 `class`。从这个角度看，你可以定义任意可复用的、可提高编码效率的 `mixin`。
 但你需考虑这个 `mixin` 是否可以定义为 `class`，以达到页面级的复用。
 
-```
+```less
 // 1: 定义 mixin，代码级的复用
 .abs-left() {
   position: absolute;
@@ -255,7 +255,7 @@ h3 {
 使用时只需要给节点添加一个 `class`，`my-mixin`只存在与代码运行时，不会被编译到 `css` 文件中。
 
 
-```
+```less
 // 2: 定义 class，页面级的复用
 .abs-left {
   position: absolute;
@@ -268,7 +268,7 @@ h3 {
 }
 ```
 
-```
+```html
 <div class="selector abs-left"></div>
 ```
 
@@ -277,7 +277,7 @@ h3 {
 
 根据代码的可复用性酌情选择方案，我们也不希望看到这样的页面内引用。
 
-```
+```html
 <div class="class-1 class-2 class-3 class-n">...</div>
 ```
 
@@ -289,7 +289,7 @@ h3 {
 
 1. 使用 `less` 文件编写样式，把组件样式关联到对应的 Vue 组件内
 
-```
+```html
 <template>
 
 </template>
@@ -303,7 +303,7 @@ h3 {
 
 2. 在组件内编写样式，引用需要的 `varible` 或 `mixin`
 
-```
+```html
 <template>
 
 </template>
@@ -341,7 +341,7 @@ indent_size = 2
 
 ### CSScomb
 
-```
+```json
 {
     "remove-empty-rulesets": true,
     "always-semicolon": true,
