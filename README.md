@@ -7,4 +7,4 @@
   * [目录结构](./vue/src.md)
   * [路由和视图定义](./vue/router.md)
 * [CSS/LESS](./less.md)
-* [IconFont](./icon.md)
+* [IconFont](./iconFont.md)
