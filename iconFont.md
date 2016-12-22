@@ -11,6 +11,9 @@
 * 线性：`l`，取 `line` 首字母
 * 方形：`s`，取 `square` 首字母
 * 圆形：`o`，一看就知道是圆
+* 粗的：`b`，取 `bold` 首字母
+* 大的：`lg`，取 `large` 缩写
+* 小的：`sm`，取 `small` 缩写
 
 # 一致性
 
@@ -36,3 +39,7 @@
 
 ![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/0A95464109F848E983CF25456781063F/3348)
 ![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/394FE44CFD7841D3BE9CFACE2BD142A1/3336)
+
+# 图标大小
+
+对于同一个图标可能会有大小要求，比如 `+`、`x`。可以复制原有的图标修改图标的大小实现，利于视图中图标继承父级字体大小无需重新定义。
