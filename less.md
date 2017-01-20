@@ -84,6 +84,7 @@ box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
 .pull-right { float: right; }
 ```
 
+
 # 顺序
 
 推荐的属性书写顺序，但不强制要求。
@@ -132,6 +133,25 @@ box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
 减少嵌套层级。嵌套应由命名空间体现，而非 `class` 嵌套。
 
 ```less
+// ×
+.list {
+  .item {
+    .text {
+
+    }
+  }
+}
+
+// ×
+.list {
+  .list-item {
+    .lsit-item-text {
+
+    }
+  }
+}
+
+// √
 .list {
 
   &-item {
@@ -147,11 +167,45 @@ box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
 }
 ```
 
+# 覆写样式
+
+假如要局部覆盖一个 `class` 为 `modal` 的样式，推荐以下两种方法：
+
+1.基于当前模块添加新的 `class`
+
+```html
+<div class="modal module-modal"></div>
+```
+
+```css
+.module-modal.modal {
+  
+}
+```
+
+2.基于临近的父级模块 `class` 作为选择器父级
+
+```html
+<div class="admin-wrap">
+  <div class="modal"></div>
+</div>
+```
+
+```less
+.admin-wrap {
+  .modal {
+  
+  }
+}
+```
+
+如果是全局性样式覆写，直接使用原类名即可。
+
 # 数值
 
 属性值为小数时，省略整数部分的 `0`
 
-```css
+```less
 .link {
   &:hover {
     opacity: .8;
