@@ -12,7 +12,7 @@
 
 两个层级，`类别 -> 项`。
 
-```yml
+```yaml
 action:
   add: 添加
   get: 获取
