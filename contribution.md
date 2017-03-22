@@ -12,7 +12,7 @@ $ git clone git@github.com:HYFE/Guide.git
 
 如果需要添加图片，把图片放入 `img` 目录，不管文档在什么位置，引入路径均为 `/img/xxx.ext`。
 
-```md
+```markdown
 ![](/img/image.jpg)
 ```
 
@@ -20,7 +20,7 @@ $ git clone git@github.com:HYFE/Guide.git
 
 编辑 `_sidebar.md` 为你新添加的文档按层级设置链接。
 
-```md
+```markdown
 - 规范
     - [CSS/LESS](guide/less)
     - [JavaScript](guide/js)
