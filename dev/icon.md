@@ -23,22 +23,22 @@
 
 如以下两个图标，同为菜单上使用，高度调节一致。
 
-![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/867320BB854F4F17BEDA372457B3F57D/3305)
+![](/img/icon-1.png)
 
-![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/0EFA6DB2099B4A47AC251A68E0D1687F/3307)
+![](/img/icon-2.png)
 
 
 同一系列或同一业务场景下出现的图标，**保持视觉一致性**。
 
 错误的案例：
 
-![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/1C27A1B306FC488AACFC53EC682397D1/3334)
-![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/394FE44CFD7841D3BE9CFACE2BD142A1/3336)
+![](/img/icon-3.png)
+![](/img/icon-4.png)
 
 正确姿势：
 
-![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/0A95464109F848E983CF25456781063F/3348)
-![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/394FE44CFD7841D3BE9CFACE2BD142A1/3336)
+![](/img/icon-5.png)
+![](/img/icon-4.png)
 
 ## 图标大小
 
