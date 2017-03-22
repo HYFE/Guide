@@ -39,7 +39,7 @@ export const FETCH_ALL = 'FETCH_ALL'
 // action.js
 import  { FETCH_ALL } from '../types'
 
-export default { {
+export default {
   actions: {
     [FETCH_ALL] (context, payload) {
       // ...
