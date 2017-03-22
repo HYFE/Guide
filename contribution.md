@@ -10,6 +10,12 @@ $ git clone git@github.com:HYFE/Guide.git
 
 文档均为 `Markdown` 格式，如果是一个新的分类内容可以直接放到仓库根目录，否则放入分类目录或新建目录。
 
+如果需要添加图片，把图片放入 `img` 目录，不管文档在什么位置，引入路径均为 `/img/xxx.ext`。
+
+```md
+![](/img/image.jpg)
+```
+
 ## 设置导航
 
 编辑 `_sidebar.md` 为你新添加的文档按层级设置链接。
