@@ -1,10 +1,11 @@
-# Guide
-团队规范
+# 黄羊郑州前端规范与开发文档
 
-## 目录
+基于黄羊郑州前端开发团队编写，内容具有一定参考性，但不具备普遍性。
 
-* Vue
-  * [目录结构](./vue/src.md)
-  * [路由和视图定义](./vue/router.md)
-* [CSS/LESS](./less.md)
-* [IconFont](./iconFont.md)
+## 目标
+
+* 一致的代码风格
+* 开发问题索引
+* 让新人快速上手
+
+> 此文档由 [docsify](https://github.com/QingWei-Li/docsify) 生成。

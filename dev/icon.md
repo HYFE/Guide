@@ -1,4 +1,4 @@
-# 命名
+## 命名
 
 1. 小写，多字母以破折号`-`连接。如：`home`、`arrow-left`等
 2. 非常见的图标名可使用拼音命名。我们知道菜单图标一般是 `menu`，但业务相关的如“应急管理”，是难以凭字面判断图标名的。
@@ -6,7 +6,7 @@
 4. 单一类别的图标不用后缀区分。
 5. 图标名尽可能短，但又足以表明其使用场景。
 
-#### 图标类别后缀参考
+### 图标类别后缀参考
 
 * 线性：`l`，取 `line` 首字母
 * 方形：`s`，取 `square` 首字母
@@ -15,7 +15,7 @@
 * 大的：`lg`，取 `large` 缩写
 * 小的：`sm`，取 `small` 缩写
 
-# 一致性
+## 一致性
 
 同一系列或同一业务场景下出现的图标，**保持图标高度的一致性**。否则在同一字体大小下会出现对齐不一致等现象。
 
@@ -32,7 +32,7 @@
 
 错误的案例：
 
-![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/1C27A1B306FC488AACFC53EC682397D1/3334) 
+![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/1C27A1B306FC488AACFC53EC682397D1/3334)
 ![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/394FE44CFD7841D3BE9CFACE2BD142A1/3336)
 
 正确姿势：
@@ -40,6 +40,6 @@
 ![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/0A95464109F848E983CF25456781063F/3348)
 ![](http://note.youdao.com/yws/public/resource/390e8cfca2424b9e883bc33c43a6beec/xmlnote/394FE44CFD7841D3BE9CFACE2BD142A1/3336)
 
-# 图标大小
+## 图标大小
 
 对于同一个图标可能会有大小要求，比如 `+`、`x`。可以复制原有的图标修改图标的大小实现，利于视图中图标继承父级字体大小无需重新定义。
