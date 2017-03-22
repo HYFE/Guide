@@ -11,7 +11,6 @@
 
 2 个空格，而非TAB。可通过更改编辑器配置或安装 **Editorconfig** 插件应用项目中的配置文件。
 
-
 ## 空格
 
 选择器和 `{` 之间
@@ -23,7 +22,7 @@
 
 `:` 和属性值之间
 
-```
+```css
 line-height: 1.5;
 ```
 
@@ -35,7 +34,7 @@ box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
 
 `>`、`+`、`~` 选择器的两边
 
-```css
+```less
 .selector {
 
   & > a {
@@ -177,7 +176,7 @@ box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
 <div class="modal module-modal"></div>
 ```
 
-```css
+```less
 .module-modal.modal {
 
 }
@@ -225,7 +224,7 @@ padding: 0 10px;
 
 使用有意义的类名定义的不同状态下的样式，便于代码中直接切换 `class`，而非显示设置样式。
 
-```css
+```less
 .alert {
   opacity: 0;
   transition: opacity .3s;
@@ -240,7 +239,7 @@ padding: 0 10px;
 
 使用连接符 `-` 定义变量，与选择器命名规则一致
 
-```css
+```less
 @font-size-base: 14px;
 @line-height-base: 1.5;
 @text-color: #333;
