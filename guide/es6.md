@@ -1315,7 +1315,7 @@ const hero = {
 
 尾逗号：**允许**。
 
-> 这会让 git diffs 更干净。另外，像 babel 这样的转译器会移除结尾多余的逗号，也就是说你不必担心老旧浏览器的[尾逗号问题](es5/README.md#commas)。
+> 这会让 `git diffs` 更干净。另外，像 babel 这样的转译器会移除结尾多余的逗号，也就是说你不必担心老旧浏览器的**尾逗号问题**。
 
 ```javascript
 // bad - git diff without trailing comma
