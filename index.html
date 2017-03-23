@@ -11,10 +11,10 @@
 </body>
 <script>
 (function() {
-    var path = '/_sidebar.md', xhrOpen = XMLHttpRequest.prototype.open;
+    var sidebar = '_sidebar.md', xhrOpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function(method, url) {
-        if(url.match(path)) {
-            url = path
+        if(url.match(sidebar)) {
+            url = location.pathname + sidebar
         }
         xhrOpen.apply(this, arguments)
     }
