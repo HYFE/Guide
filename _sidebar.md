@@ -1,7 +1,7 @@
 - 规范
     - [HTML](guide/html)
     - [CSS/LESS](guide/less)
-    - [JavaScript](guide/js)
+    - [JavaScript/ES6](guide/es6)
     - [Vue](guide/vue)
     - [Image](guide/image)
 
