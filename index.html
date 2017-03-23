@@ -10,10 +10,20 @@
   <div id="app">Loading ...</div>
 </body>
 <script>
+(function() {
+    var path = '/_sidebar.md', xhrOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function(method, url) {
+        if(url.match(path)) {
+            url = path
+        }
+        xhrOpen.apply(this, arguments)
+    }
+})();
 window.$docsify = {
     auto2top: true,
     executeScript: true,
     loadSidebar: true,
+    autoHeader: true,
     name: 'HYFE docs',
     repo: 'HYFE/Guide',
     search: {

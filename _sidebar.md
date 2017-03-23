@@ -2,7 +2,7 @@
     - [CSS/LESS](guide/less)
     - [JavaScript](guide/js)
     - [Vue](guide/vue)
-    - [image](guide/image)
+    - [Image](guide/image)
 
 - 指南
     - [统一命名](dev/naming)
