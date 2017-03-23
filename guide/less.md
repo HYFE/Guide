@@ -166,6 +166,29 @@ box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
 }
 ```
 
+!> 滥用嵌套会让生成后的 CSS 代码异常恐怖，`.a .b .c .d .e ...`。
+
+嵌套时思考以下几个方面：
+
+* 编译 CSS 越少越好。
+* 选择器越少越好。
+* 编译文件越小越好。
+* 基于组件的 CSS 更好。
+* 不太具体的 CSS 更好。
+
+使用伪类嵌套感觉像是嵌套 CSS 的唯一适用方法。
+
+```less
+.btn {
+  &:hover,
+  &:focus { }
+
+  &:active { }
+}
+```
+
+> 参考：[Nesting in Sass and Less](http://markdotto.com/2015/07/20/css-nesting/)
+
 ## 覆写样式
 
 假如要局部覆盖一个 `class` 为 `modal` 的样式，推荐以下两种方法：
