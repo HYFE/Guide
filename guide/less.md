@@ -235,6 +235,13 @@ padding: 0 10px;
 }
 ```
 
+切换显示状态只需要：
+
+```js
+// ✓
+alertEl.classList.toggle('active')
+```
+
 ## 变量
 
 使用连接符 `-` 定义变量，与选择器命名规则一致
@@ -357,12 +364,8 @@ h3 {
 2. 在组件内编写样式，引用需要的 `varible` 或 `mixin`
 
 ```html
-<template>
-
-</template>
-<script>
-
-</script>
+<template>...</template>
+<script>...</script>
 <style lang="less">
 @import '~less/varible.less';
 
