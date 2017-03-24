@@ -6,7 +6,7 @@
 🗁 components
   `--🗁 tree
   |  |--🗎 index.vue
-  |  `--🗎 item.vue
+  |  `--🗎 treeItem.vue
 ```
 
 `index.vue` 为组件入口，这样在调用组件时，路径只需要写到目录级。
@@ -23,5 +23,5 @@ import tree from 'components/tree'
 🗁 view
   `--🗁 project
   |  |--🗎 index.vue
-  |  `--🗎 details.vue
+  |  `--🗎 projectDetails.vue
 ```

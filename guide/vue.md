@@ -278,7 +278,54 @@ export default {
 
 ## 样式作用域
 
-采用 [CSS Modules](https://github.com/vuejs/vue-loader/blob/master/docs/zh-cn/features/css-modules.md) 方案。
+采用 [CSS Modules](https://github.com/vuejs/vue-loader/blob/master/docs/zh-cn/features/css-modules.md) 方案，规则：`[name]-[local]__[hash:base64:6]`。
 
-待述。。。
+```
+// app.vue
+.header  ->  .app-header__1Sn5qI_0
+```
 
+使用 CSS Modules 的文件名必须标识模块。
+
+> 一个名称为 `treeItem.vue` 中的组件可以生成 `treeItem-className__xxxx` 的格式，但是 `item.vue` 只能生成 `item-className__xxxx`。前者更具有语义。
+
+样式类名不使用连接符 `-`，而是使用驼峰命名：
+
+```html
+<template>
+    <div>
+        <!-- bad, 变量可包含的特殊符号只能是 _ 或 $ -->
+        <p :class="$style.text-red">hello</p>
+
+        <!-- good -->
+        <p :class="$style.textRed">world</p>
+    </div>
+</template>
+<style module>
+.text-red,
+.textRed {
+    color: red
+}
+</style>
+```
+
+样式名，1~3 个单词为佳，不要与文件名中的单词一致。我们可以把文件名比作 `module`，那么样式名可取的类别可以是 `position`、`element`、`block`、`name` 等。
+你不需要担心 `a.vue` 中的 `.header` 会与 `b.vue` 中的 `.header` 冲突。
+
+绑定多个类名时，使用 `Array` 语法：
+
+```html
+<header :class="[$style.header, $style.fixed]"></header>
+```
+
+绑定动态类时使用 `Object` 语法：
+
+```html
+<header :class="{ [$style.show]: show }"></header>
+```
+
+固定类和动态类同时存在于一个元素时，使用 `Array` + `Object` 语法：
+
+```html
+<header :class="[$style.header, $style.fixed, { [$style.show]: show }]"></header>
+```
