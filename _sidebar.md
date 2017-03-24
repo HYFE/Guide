@@ -13,5 +13,6 @@
     - [axios集成与使用](dev/axios)
     - [MockJs配置](dev/mockjs)
     - [Vue测试介绍](dev/vue-test)
+    - [编辑器](dev/editor)
 
 - [**贡献文档**](contribution)

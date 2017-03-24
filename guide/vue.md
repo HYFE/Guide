@@ -25,9 +25,9 @@ export default {
 <range-slider></range-slider>
 ```
 
-# 书写顺序
+## 顺序
 
-三小节的书写顺序按关注度排列。
+三个区块的书写顺序按关注度排列。
 
 ```html
 <template></template>
@@ -85,4 +85,200 @@ import util from 'util'
 import Api from 'Api'
 ```
 
-Todo...
+## 模板
+
+对于可简写的指令使用简写。
+
+```html
+<!-- bad -->
+<div v-bind:class="className" v-bind:html="hello"></div>
+<input v-on:change="onChange">
+
+<!-- good -->
+<div :class="className" :html="hello"></div>
+<input @change="onChange">
+```
+
+属性过多时，换行。
+
+```html
+<!-- bad -->
+<my-component v-if="show" :comp-id="id" :data-list="dataList" :map-options="mapOptions" @on-change="onChange"></my-component>
+
+<!-- good -->
+<my-component v-if="show"
+    :comp-id="id"
+    :data-list="dataList"
+    :map-options="mapOptions"
+    @on-change="onChange"></my-component>
+```
+
+无 `slot` 的组件可以自闭合。
+
+```html
+<my-loding :show="show"/>
+```
+
+## Props
+
+永远对 `props` 进行验证：
+
+* 提供默认值
+* 使用 `type` 属性校验类型
+* 使用 `props` 之前先检查该 `prop` 是否存在
+
+```html
+<template>
+  <ul v-if="data">
+    <li v-for="item in data">{{ item }}</li>
+  </ul>
+</template>
+<script>
+export default {
+    props: {
+        data: Array,
+        msg: {
+            type: String,
+            default: 'hello'
+        }
+    },
+}
+</script>
+```
+
+> 验证组件 props 可以保证你的组件永远是可用的（防御性编程）。即使其他开发者并未按照你预想的方法使用时也不会出错。
+
+组件 `props` 保持原子化。即：组件的每一个属性单独使用一个 `props`，并且使用函数或是原始类型（字符串、数字、布尔值）的值。
+
+```html
+<!-- 推荐 -->
+<range-slider
+  :values="[10, 20]"
+  min="0"
+  max="100"
+  step="5"
+  :on-slide="updateInputs"
+  :on-end="updateResults">
+</range-slider>
+
+<!-- 避免 -->
+<range-slider :config="complexConfigObject"></range-slider>
+```
+
+## 事件
+
+* 避免与原生事件名一致
+* 事件名使用连字符分隔多个单词
+* 事件名要有意义，一个基本原则为：**什么事已发生**。如：`show`、`row-edit`、`item-selected`，动词或形容词结尾。
+* 事件所绑定的函数，表示有意义的操作，遵循函数命名规则：`do-something`。
+
+```html
+<child @item-selected="selectedChildItem"></child>
+```
+
+## 减少状态
+
+* 如果一个数据可以由另一个 `state` 变换得到，那么这个数据就不是一个 `state`。只需要写一个变换的处理函数，或者是表达式、计算属性。
+* 不要重复自己。如果你的 `state` 是一个数组，而模版最外层是渲染这个数组，那么你需要做的事是把渲染的项作为一个组件，只接受一个单级对象形式的数据，由外部决定这个组件的展示次数。
+* 如果一个数据是固定的，不会变化的常量，那么这个数据就如同 HTML 固定的站点标题一样，写死或作为全局配置属性等，不属于 `state`。
+* 如果一个数据需要从外部得到，它应该属于 `props`。
+* 如果组件和兄弟组件拥有相同的 `state`，那么这个 `state` 应该放到更高的层级中，使用 `props` 传递到两个组件中。
+
+## this
+
+在组件上下文，`this` 指向了组件实例。因此当你切换到了不同的上下文时，要确保 `this` 仍然指向组件。
+使用箭头函数能有效规避这个问题。
+
+```js
+export default {
+    data() {
+        return {
+            msg: 'hello'
+        }
+    },
+    created() {
+        // 避免
+        setTimeout(function() {
+            // this 指向 window
+            console.log(this.msg)
+        }, 100)
+
+        // 推荐
+        setTimeout(() => {
+            console.log(this.msg)
+        }, 100)
+    }
+}
+```
+
+## 避免操作DOM
+
+遵循数据驱动，由 `state` 映射 DOM 变化，而非手动切换。
+
+**避免：**
+
+```html
+<template>
+    <ul>
+        <li v-for="item in data" @item-click="highlightItem">{{ item }}</li>
+    </ul>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [1, 2, 3]
+        }
+    },
+    methods: {
+        highlightItem(e) {
+            e.target.parentNode.querySelector('li.active').classList.remove('active')
+            e.target.classList.add('active')
+        }
+    }
+}
+</script>
+```
+
+**推荐：**
+
+```html
+<template>
+    <ul>
+        <li v-for="(item, i) in data"
+            @item-click="highlightItem(i)"
+            :class="{ active: highlightIndex === i }">{{ item }}</li>
+    </ul>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [1, 2, 3],
+            highlightIndex: 0
+        }
+    },
+    methods: {
+        highlightItem(index) {
+            this.highlightIndex = index
+        }
+    }
+}
+</script>
+```
+
+避免使用 `this.$parent`、`this.$children`、`this.$refs`：
+
+* 组件必须相互保持独立，Vue 组件也是。如果组件需要访问其父层或下级的上下文就违反了该原则。
+* 如果一个组件需要访问其父层或下级组件的上下文，那么该组件将不能在其它上下文中复用。
+* 当遇到 `props` 和 `events` 难以实现的功能时，通过 `this.$refs` 来实现。
+* 当需要操作 DOM 无法通过指令来做的时候可使用 `this.$ref` 而不是 `JQuery`、`document.getElement*`、`document.querySelector`。
+
+!> 组件的属性和事件必须足够的给大多数的组件使用。思考从组件设计上规避以上问题，或者可以采用[指令](https://cn.vuejs.org/v2/guide/custom-directive.html)封装 DOM 操作。
+
+## 样式作用域
+
+采用 [CSS Modules](https://github.com/vuejs/vue-loader/blob/master/docs/zh-cn/features/css-modules.md) 方案。
+
+待述。。。
+

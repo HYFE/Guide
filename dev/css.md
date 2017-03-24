@@ -33,7 +33,7 @@ import './less/app.less'
 
 ## 组件样式
 
-倾向于把各个组件相关的样式写入组件内 `<style>...</style>` 中，组件样式引入公共依赖进行调用。
+可以把各个组件相关的样式写入组件内 `<style>...</style>` 中，组件样式引入公共依赖进行调用。
 
 ```html
 <template>...</template>
@@ -44,6 +44,23 @@ import './less/app.less'
 /*
   ...
 */
+</style>
+```
+
+也可以在组件目录中，添加同名 `less` 文件，并在组件内引入。
+
+```
+🗁 components
+  `--🗁 myComponent
+  |  |--🗎 index.vue
+  |  `--🗎 myComponent.less
+```
+
+```html
+<template>...</template>
+<script>...</script>
+<style lang="less">
+@import "./myComponent";
 </style>
 ```
 
