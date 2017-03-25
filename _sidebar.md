@@ -1,18 +1,18 @@
-- 规范
-    - [HTML](guide/html)
-    - [CSS/LESS](guide/less)
-    - [JavaScript/ES6](guide/es6)
-    - [Vue](guide/vue)
-    - [Image](guide/image)
+- 代码规范
+    - [HTML](style/html)
+    - [CSS/LESS](style/less)
+    - [JavaScript/ES6](style/es6)
+    - [Vue](style/vue)
+    - [Image](style/image)
 
-- 指南
-    - [统一命名](dev/naming)
-    - [样式管理](dev/css)
-    - [组件管理](dev/components)
-    - [图标集成](dev/icon)
-    - [axios集成与使用](dev/axios)
-    - [MockJs配置](dev/mockjs)
-    - [Vue测试介绍](dev/vue-test)
-    - [编辑器](dev/editor)
+- 开发指南
+    - [统一命名](doc/naming)
+    - [样式管理](doc/css)
+    - [组件管理](doc/components)
+    - [图标集成](doc/icon)
+    - [axios集成与使用](doc/axios)
+    - [MockJs配置](doc/mockjs)
+    - [Vue测试介绍](doc/vue-test)
+    - [编辑器](doc/editor)
 
 - [**贡献文档**](contribution)
