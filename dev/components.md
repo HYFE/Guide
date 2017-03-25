@@ -5,14 +5,20 @@
 ```
 🗁 components
   `--🗁 tree
-  |  |--🗎 index.vue
+  |  |--🗎 index.js
+  |  |--🗎 tree.vue
   |  `--🗎 treeItem.vue
 ```
 
-`index.vue` 为组件入口，这样在调用组件时，路径只需要写到目录级。
+组件目录 `index.js` 为组件入口，导出可被调用的组件。
 
 ```js
-import tree from 'components/tree'
+// index.js
+import tree from './tree.vue'
+import treeItem from './treeItem.vue'
+
+export default tree
+export { treeItem }
 ```
 
 ## 视图/容器组件

@@ -25,6 +25,16 @@ export default {
 <range-slider></range-slider>
 ```
 
+## name
+
+组件必须包含 `name` 属性。这在你使用 VueDevtools 时能很方便查找组件。
+
+```js
+export default {
+    name: 'myComponent'
+}
+```
+
 ## 顺序
 
 三个区块的书写顺序按关注度排列。
@@ -39,6 +49,7 @@ export default {
 
 ```js
 export default {
+    name,
     // 扩展
     mixins,
     extends,
@@ -285,9 +296,22 @@ export default {
 .header  ->  .app-header__1Sn5qI_0
 ```
 
-使用 CSS Modules 的文件名必须标识模块。
+使用 CSS Modules 的文件名中必须包含模块名。
 
-> 一个名称为 `treeItem.vue` 中的组件可以生成 `treeItem-className__xxxx` 的格式，但是 `item.vue` 只能生成 `item-className__xxxx`。前者更具有语义。
+```bash
+# bad
+🗁 tree
+  |--🗎 index.vue
+  |--🗎 item.vue
+
+# good
+🗁 tree
+  |--🗎 index.js
+  |--🗎 tree.vue
+  |--🗎 treeItem.vue
+```
+
+> 一个名称为 `treeItem.vue` 中的类名可以生成 `.treeItem-className__xxxx` 的格式，但是 `item.vue` 只能生成 `.item-className__xxxx`。前者更具有语义。
 
 样式类名不使用连接符 `-`，而是使用驼峰命名：
 
