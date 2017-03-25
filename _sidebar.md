@@ -12,6 +12,7 @@
     - [图标集成](doc/icon)
     - [axios集成与使用](doc/axios)
     - [MockJs配置](doc/mockjs)
+    - [模拟文件上传](doc/upload)
     - [Vue测试介绍](doc/vue-test)
     - [编辑器](doc/editor)
 
