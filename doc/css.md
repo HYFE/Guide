@@ -35,7 +35,7 @@ import './less/app.less'
 
 可以把各个组件相关的样式写入组件内 `<style>...</style>` 中，组件样式引入公共依赖进行调用。
 
-```html
+```vue
 <template>...</template>
 <script>...</script>
 <style lang="less">
@@ -56,7 +56,7 @@ import './less/app.less'
   |  `--🗎 myComponent.less
 ```
 
-```html
+```vue
 <template>...</template>
 <script>...</script>
 <style lang="less">

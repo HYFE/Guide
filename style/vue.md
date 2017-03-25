@@ -19,7 +19,7 @@ export default {
 
 模版内组件遵循 `自定义元素规范`：全小写，使用 `-` 分隔单词。
 
-```html
+```vue
 <app-header></app-header>
 <user-list></user-list>
 <range-slider></range-slider>
@@ -39,7 +39,7 @@ export default {
 
 三个区块的书写顺序按关注度排列。
 
-```html
+```vue
 <template></template>
 <script></script>
 <style></style>
@@ -100,7 +100,7 @@ import Api from 'Api'
 
 对于可简写的指令使用简写。
 
-```html
+```vue
 <!-- bad -->
 <div v-bind:class="className" v-bind:html="hello"></div>
 <input v-on:change="onChange">
@@ -112,7 +112,7 @@ import Api from 'Api'
 
 属性过多时，换行。
 
-```html
+```vue
 <!-- bad -->
 <my-component v-if="show" :comp-id="id" :data-list="dataList" :map-options="mapOptions" @on-change="onChange"></my-component>
 
@@ -126,7 +126,7 @@ import Api from 'Api'
 
 无 `slot` 的组件可以自闭合。
 
-```html
+```vue
 <my-loding :show="show"/>
 ```
 
@@ -138,7 +138,7 @@ import Api from 'Api'
 * 使用 `type` 属性校验类型
 * 使用 `props` 之前先检查该 `prop` 是否存在
 
-```html
+```vue
 <template>
   <ul v-if="data">
     <li v-for="item in data">{{ item }}</li>
@@ -161,7 +161,7 @@ export default {
 
 组件 `props` 保持原子化。即：组件的每一个属性单独使用一个 `props`，并且使用函数或是原始类型（字符串、数字、布尔值）的值。
 
-```html
+```vue
 <!-- 推荐 -->
 <range-slider
   :values="[10, 20]"
@@ -183,7 +183,7 @@ export default {
 * 事件名要有意义，一个基本原则为：**什么事已发生**。如：`show`、`row-edit`、`item-selected`，动词或形容词结尾。
 * 事件所绑定的函数，表示有意义的操作，遵循函数命名规则：`do-something`。
 
-```html
+```vue
 <child @item-selected="selectedChildItem"></child>
 ```
 
@@ -214,6 +214,12 @@ export default {
             console.log(this.msg)
         }, 100)
 
+        // 避免
+        const self = this
+        setTimeout(function() {
+            console.log(self.msg)
+        }, 100)
+
         // 推荐
         setTimeout(() => {
             console.log(this.msg)
@@ -228,7 +234,7 @@ export default {
 
 **避免：**
 
-```html
+```vue
 <template>
     <ul>
         <li v-for="item in data" @item-click="highlightItem">{{ item }}</li>
@@ -253,7 +259,7 @@ export default {
 
 **推荐：**
 
-```html
+```vue
 <template>
     <ul>
         <li v-for="(item, i) in data"
@@ -315,7 +321,7 @@ export default {
 
 样式类名不使用连接符 `-`，而是使用驼峰命名：
 
-```html
+```vue
 <template>
     <div>
         <!-- bad, 变量可包含的特殊符号只能是 _ 或 $ -->
@@ -338,18 +344,18 @@ export default {
 
 绑定多个类名时，使用 `Array` 语法：
 
-```html
+```vue
 <header :class="[$style.header, $style.fixed]"></header>
 ```
 
 绑定动态类时使用 `Object` 语法：
 
-```html
+```vue
 <header :class="{ [$style.show]: show }"></header>
 ```
 
 固定类和动态类同时存在于一个元素时，使用 `Array` + `Object` 语法：
 
-```html
+```vue
 <header :class="[$style.header, $style.fixed, { [$style.show]: show }]"></header>
 ```
