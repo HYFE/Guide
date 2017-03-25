@@ -10,7 +10,7 @@
   |  `--🗎 treeItem.vue
 ```
 
-组件目录 `index.js` 为组件入口，导出可被调用的组件。
+组件目录以 `index.js` 为组件入口，导出可被调用的组件。
 
 ```js
 // index.js
@@ -19,6 +19,19 @@ import treeItem from './treeItem.vue'
 
 export default tree
 export { treeItem }
+```
+
+然后就可以这样调用一个组件：
+
+```js
+import tree, { treeItem } from 'components/tree'
+
+export default {
+    components: {
+        tree,
+        treeItem
+    }
+}
 ```
 
 ## 视图/容器组件
