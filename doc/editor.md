@@ -6,6 +6,7 @@
 
 * Babel ES6/ES7
 * ESLint
+* stylelint
 * vetur
 * vue
 * Vue2 Snippets
