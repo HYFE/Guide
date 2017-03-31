@@ -43,10 +43,10 @@ DELETE('/url').then(data => console.log(data))
 
 对常用 Rest 请求格式的封装。以一个实体 User 为例，基础 URL 为 `/api/user`，则：
 
- * 查询 GET /api/user/:id
- * 添加 POST /api/user
- * 修改 PUT /api/user/:id
- * 删除 DELETE /api/user/:id
+ * 查询 GET `/api/user/:id`
+ * 添加 POST `/api/user`
+ * 修改 PUT `/api/user/:id`
+ * 删除 DELETE `/api/user/:id`
 
 **`export default class Api`**
 
@@ -58,10 +58,11 @@ DELETE('/url').then(data => console.log(data))
 * `all([params])`
 
 ```js
+// CityApi.js
 import Ajax, { GET } from './ajax'
 
 // 通过 Ajax 类实例化拥有基础的 QRUD 能力
-const CityApi = new Ajax('./city')
+const CityApi = new Ajax('/city')
 
 // 如果需要额外的个性化请求，借助 GET、POST、PUT、DELETE 工具方法添加
 CityApi.paging = params => GET('/city2', params)
@@ -104,3 +105,45 @@ export default {
 }
 </script>
 ```
+
+## 多级资源请求
+
+路径模版约定为：`/api/资源名/:资源id/子资源名/:子资源id`。
+
+假如我们要请求用户的团队信息，则：
+
+* 添加 POST `/api/user/:userId/team`
+* 查询 GET `/api/user/:userId/team`
+* 查询单个 GET `/api/user/:userId/team/:teamId`
+* 修改 PUT `/api/user/:userId/team/:teamId`
+* 删除 DELETE `/api/user/:userId/team/:teamId`
+
+```js
+// teamApi.js
+import Ajax from './ajax'
+
+const TeamApi = new Api('/user/:userId/team')
+
+export default TeamApi
+```
+
+```js
+// 调用
+import TeamApi from 'api/teamApi'
+
+// 添加
+TeamApi.add(userId, team)
+// 查询用户所有团队
+TeamApi.all(userId)
+// 查询用户某个团队
+TeamApi.one(userId, teamId)
+// 修改
+TeamApi.update(userId, teamId, team)
+// 删除
+TeamApi.delete(userId, teamId)
+```
+
+总结来说：
+
+* `Ajax` 基础类只需要传一个 URL pattern，就可以实例化符合 Restful 规范的接口调用。
+* 所有 URL pattern 上的占位符按顺序传入，`body` 或 `params` 永远作为最后一个参数传入。
