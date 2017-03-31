@@ -41,7 +41,7 @@ DELETE('/url').then(data => console.log(data))
 
 ## 工具类
 
-对常用 Rest 请求格式的封装。以一个实体 User 为例，基础 URL 为 `/api/user`，则：
+对常用 REST 请求格式的封装。以一个实体 User 为例，基础 URL 为 `/api/user`，则：
 
  * 查询 **GET** `/api/user/:id`
  * 添加 **POST** `/api/user`
@@ -145,5 +145,5 @@ TeamApi.delete(userId, teamId)
 
 总结来说：
 
-* `Ajax` 基础类只需要传一个 URL pattern，就可以实例化符合 Restful 规范的接口调用。
+* `Ajax` 基础类只需要传一个 URL pattern，就可以实例化符合 RESTful 规范的接口调用。
 * 所有 URL pattern 上的占位符按顺序传入，`body` 或 `params` 永远作为最后一个参数传入。
