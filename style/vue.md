@@ -359,3 +359,5 @@ export default {
 ```vue
 <header :class="[$style.header, $style.fixed, { [$style.show]: show }]"></header>
 ```
+
+!> 对于公共组件不建议使用 CSS Modules。因为每次编译后的类名 base64 值都不一样，这会导致样式难以被局部覆写。

@@ -6,7 +6,7 @@
     - [Image](style/image)
 
 - 开发指南
-    - [统一命名](doc/naming)
+    - [命名宝典](doc/naming)
     - [样式管理](doc/css)
     - [组件管理](doc/components)
     - [图标集成](doc/icon)
